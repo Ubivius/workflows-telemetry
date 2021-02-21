@@ -1,0 +1,46 @@
+name: CI to distribute workflows changes to main branches of telemetry projects
+
+on:
+  push:
+    tags:
+      - v*
+    branches: [ main ]
+
+env:
+  GIT_USER: ${{ secrets.GIT_USERNAME }}
+  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+  GIT_SSH_KEY: ${{ secrets.GIT_SSH_KEY }}
+
+jobs:
+  pull-workflows-changes:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Git
+      run: |
+        git config --global user.name "${{ env.GIT_USER }}"
+        git config --global user.email "${{ env.GIT_EMAIL }}"
+        echo "Add ssh key in ~/.ssh/id_rsa file here"
+        curl -s https://api.github.com/orgs/ubivius/repos | \
+        grep "\"name\": \"telemetry" | \
+        sed 's/    "name": "//g' | \
+        sed 's/",//g' > repository_list.txt
+
+    - name: Pull telemetry repositories and create new branches
+      run: |
+        cat repository_list.txt | \
+        while read line; \
+        do \
+        git clone git@github.com/Ubivius/$line.git; \
+        cd $line; \
+        git checkout main; \
+        git checkout -b hotfix/workflows-update; \
+        git add .; \
+        git commit -m "Creating workflows update branch"; \
+        git push --set-upstream origin hotfix/workflows-update; \
+        cd ..; \
+        done
+
+    - name: Update files and commit changes
+
+    - name: Create pull requests

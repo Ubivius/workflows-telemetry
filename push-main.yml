@@ -1,0 +1,25 @@
+name: CI for Merge on main
+
+on:
+  push:
+    tags:
+      - v*
+    branches: [ main ]
+
+env:
+  MAIN_GKE_USER: ${{ secrets.MAIN_GKE_USER }}
+  MAIN_GKE_PWD: ${{ secrets.MAIN_GKE_PWD }}
+
+jobs:
+  deploy-tooling:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup helm/kubectl env
+      run: |
+        apt install kubectl
+        apt install helm
+        apt install gcloud
+    - name: Push with valuefile
+      run: |
+        helm update
