@@ -22,6 +22,7 @@ jobs:
         export GH_TOKEN=${{ env.GH_TOKEN }}; \
         git config --global user.name "${{ env.GIT_USER }}"; \
         git config --global user.email "${{ env.GIT_EMAIL }}"; \
+        chmod 777 scripts/git_setup.sh
         ./scripts/git_setup.sh
 
     - name: Pull telemetry repositories and create new branches
