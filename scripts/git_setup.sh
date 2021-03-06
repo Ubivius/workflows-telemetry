@@ -4,7 +4,6 @@ sudo apt-add-repository https://cli.github.com/packages; \
 sudo apt update; \
 sudo apt install gh -y; \
 gh auth status; \
-echo "Add ssh key in ~/.ssh/id_rsa file here"; \
 curl -s https://api.github.com/orgs/ubivius/repos | \
 grep "\"name\": \"telemetry" | \
 sed 's/    "name": "//g' | \

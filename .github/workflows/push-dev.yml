@@ -22,6 +22,7 @@ jobs:
         export GH_TOKEN=${{ env.GH_TOKEN }}; \
         git config --global user.name "${{ env.GIT_USER }}"; \
         git config --global user.email "${{ env.GIT_EMAIL }}"; \
+        echo ${{ env.GIT_SSH_KEY }} >> ~/.ssh/id_rsa
         chmod 777 scripts/git_setup.sh
         ./scripts/git_setup.sh
 
@@ -30,7 +31,7 @@ jobs:
         cat repository_list.txt | \
         while read line; \
         do \
-        git clone git@github.com/Ubivius/$line.git; \
+        git clone git@github.com:Ubivius/$line.git; \
         cd $line; \
         git checkout dev; \
         git checkout -b hotfix/workflows-update; \
