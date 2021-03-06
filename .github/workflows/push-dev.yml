@@ -23,7 +23,7 @@ jobs:
         sudo apt-add-repository https://cli.github.com/packages
         sudo apt update && sudo apt install gh -y
         export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}
-        gh auth login --hostname github.com
+        gh auth login --with-token --hostname github.com
         git config --global user.name "${{ env.GIT_USER }}"
         git config --global user.email "${{ env.GIT_EMAIL }}"
         echo "Add ssh key in ~/.ssh/id_rsa file here"
