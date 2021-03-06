@@ -25,20 +25,20 @@ jobs:
         mkdir ~/.ssh
         echo -e "${{ env.GIT_SSH_KEY }}" | tee ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        chmod 777 scripts/git_setup.sh
+        chmod 700 scripts/git_setup.sh
         ./scripts/git_setup.sh
 
     - name: Pull telemetry repositories and create new branches
       run: |
-        chmod 777 scripts/prepare_dev_telemetry.sh
+        chmod 700 scripts/prepare_dev_telemetry.sh
         cat repository_list.txt | ./scripts/prepare_dev_telemetry.sh
 
     - name: Update files and commit changes
       run: |
-        chmod 777 scripts/add_files.sh
+        chmod 700 scripts/add_files.sh
         cat repository_list.txt | ./scripts/add_files.sh
 
     - name: Create pull requests
       run: |
-        chmod 777 scripts/create_dev_pr.sh
+        chmod 700 scripts/create_dev_pr.sh
         cat repository_list.txt | ./scripts/create_dev_pr.sh
