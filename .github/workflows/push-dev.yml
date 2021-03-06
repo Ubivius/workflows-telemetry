@@ -23,7 +23,7 @@ jobs:
         git config --global user.name "${{ env.GIT_USER }}"
         git config --global user.email "${{ env.GIT_EMAIL }}"
         mkdir ~/.ssh
-        echo ${{ env.GIT_SSH_KEY }} | tee ~/.ssh/id_rsa
+        echo "${{ env.GIT_SSH_KEY }}" | tee ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         chmod 777 scripts/git_setup.sh
         ./scripts/git_setup.sh
