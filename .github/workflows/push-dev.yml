@@ -30,7 +30,7 @@ jobs:
 
     - name: Pull telemetry repositories and create new branches
       run: |
-        chmod 777 scripts/prepare_telemetry.sh
+        chmod 777 scripts/prepare_dev_telemetry.sh
         cat repository_list.txt | ./scripts/prepare_dev_telemetry.sh
 
     - name: Update files and commit changes
