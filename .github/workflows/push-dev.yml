@@ -22,7 +22,6 @@ jobs:
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
         sudo apt-add-repository https://cli.github.com/packages
         sudo apt update && sudo apt install gh -y
-        export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}
         gh auth login --with-token --hostname github.com
         git config --global user.name "${{ env.GIT_USER }}"
         git config --global user.email "${{ env.GIT_EMAIL }}"
