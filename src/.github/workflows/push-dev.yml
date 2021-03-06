@@ -17,9 +17,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup helm/kubectl env
       run: |
-        apt install kubectl
-        apt install helm
-        apt install gcloud
+        sudo apt install kubectl
+        sudo apt install helm
+        sudo apt install gcloud
     - name: Push with valuefile
       run: |
         helm update

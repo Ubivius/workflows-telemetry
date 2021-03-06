@@ -31,25 +31,14 @@ jobs:
     - name: Pull telemetry repositories and create new branches
       run: |
         chmod 777 scripts/prepare_telemetry.sh
-        cat repository_list.txt | ./scripts/prepare_telemetry.sh
+        cat repository_list.txt | ./scripts/prepare_dev_telemetry.sh
 
     - name: Update files and commit changes
       run: |
-        ls -la; \
-        cat repository_list.txt | \
-        while read line; \
-        do \
-        cd $line; \
-        echo "Test"
-        cd ..; \
-        done
+        chmod 777 scripts/add_files.sh
+        cat repository_list.txt | ./scripts/add_files.sh
 
     - name: Create pull requests
       run: |
-        cat repository_list.txt | \
-        while read line; \
-        do \
-        cd $line; \
-        ls -l; \
-        cd ..; \
-        done
+        chmod 777 scripts/create_dev_pr.sh
+        cat repository_list.txt | ./scripts/create_dev_pr.sh

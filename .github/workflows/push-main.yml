@@ -1,10 +1,10 @@
-name: CI to distribute workflows changes to main branches of telemetry projects
+name: CI to distribute workflows changes to master/main branches of telemetry projects
 
 on:
   push:
     tags:
       - v*
-    branches: [ main ]
+    branches: [ master, main ]
 
 env:
   GIT_USER: ${{ secrets.GIT_USERNAME }}
