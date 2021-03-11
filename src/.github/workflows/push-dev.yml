@@ -29,3 +29,4 @@ jobs:
         NAME=${IN#"Ubivius/telemetry-"}
         chmod 700 .github/helm_update.sh
         ./.github/helm_update.sh $NAME
+
