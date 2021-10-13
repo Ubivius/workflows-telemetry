@@ -18,18 +18,6 @@ To customize you can add the desired deployment code block at the end of your `p
   </thead>
   <tbody>
     <tr>
-      <td><sub>DOCKERHUB_USERNAME</sub></td>
-      <td><sub>Your DockerHub service account short username used to push your built Docker container to DockerHub</sub></td>
-      <td><sub>your_name</sub></td>
-      <td><sub>Yes</sub></td>
-    </tr>
-    <tr>
-      <td><sub>DOCKERHUB_PWD</sub></td>
-      <td><sub>Your DockerHub service account's password to enable pushing built containers</sub></td>
-      <td><sub>abc123</sub></td>
-      <td><sub>Yes</sub></td>
-    </tr>
-    <tr>
       <td><sub>GKE_SERVICEACCOUNT_EMAIL</sub></td>
       <td><sub>This is your GKE service account's email</sub></td>
       <td><sub>my_deployment_bot@cluster_name.iam.gserviceaccount.com</sub></td>
