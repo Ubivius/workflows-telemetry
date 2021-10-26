@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 valid_chars="^(feature|hotfix)\/(UBI)-([0-9]{3,4})-([A-Za-z-]+)$"
