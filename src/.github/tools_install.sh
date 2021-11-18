@@ -5,8 +5,12 @@ sudo apt-get update
 sudo apt-get install google-cloud-sdk -y
 brew install --build-from-source yq jq
 mkdir ~/.kube
+# For Logstash, Filebeat
 helm repo add elastic https://helm.elastic.co
+# For Prometheus
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# For Grafana
 helm repo add grafana https://grafana.github.io/helm-charts
+# For Jaeger
 helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
 helm repo update
