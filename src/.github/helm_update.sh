@@ -5,6 +5,7 @@ case $1 in
     ;;
     grafana)
         helm upgrade grafana --install --version 6.4.5 grafana/grafana -f chart/values.yaml
+        kubectl apply -f chart/ingressroute.yaml
     ;;
     logstash)
         helm upgrade logstash --install --version 7.14.0 elastic/logstash -f chart/values.yaml
